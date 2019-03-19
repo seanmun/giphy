@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Favorite Gifs</title>
+  <style type="text/css">
+    button,
+    div,
+    form,
+    input {
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <!-- Rendered Buttons will get Dumped Here  -->
+    <div id="buttons-view"></div>
+
+    <form id="movie-form">
+      <label for="giphy-input">Search for a topic</label>
+      <input type="text" id="giphy-input">
+      <br>
+
+      <!-- Button triggers new movie to be added -->
+      <input id="add-giphy" type="submit" value="Submit">
+    </form>
+
+    <!-- Topics will Get Dumped Here -->
+    <div id="buttons-view"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+            /*
+        api.giphy.com
+
+        API Key 5t8MlY5fypS0vO5FlPmAtWubZunwN06n
+
+        https://api.giphy.com/v1/gifs/search?q=wwe&limit=10&lang=es&api_key=5t8MlY5fypS0vO5FlPmAtWubZunwN06n
+        */
+
+
+      //   var searchTerm = "";
+      //   var api ="http://api.giphy.com/v1/gifs/search?";
+      //   var key = "&api_key=5t8MlY5fypS0vO5FlPmAtWubZunwN06n";
+      //   var term = "&q=" + searchTerm;
+      // var topics = ["wwe", "nba", "meme", "stephen a smith"];
+
+      // function displayMovieInfo() {
+
+      //   var term = $(this).attr("data-name");
+      //   var queryURL = api + term + key;
+
+ // Example queryURL for Giphy API
+ var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC";
+
+$.ajax({
+  url: queryURL,
+  method: "GET"
+}).then(function(response) {
+  console.log(response);
+});
+    </script>
+  </div>
+</body>
+
+</html>
