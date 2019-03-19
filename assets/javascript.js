@@ -5,7 +5,7 @@ var topics = ["stone cold", "undertaker", "vince mcmahon", "the rock", "hulk hog
 var topicButtons = function () {
     $("#buttons").empty();
 
-    for (let i = 0; i < topics.length; i++) {
+    for (var i = 0; i < topics.length; i++) {
         var button = $('<button class="button">');
         button.attr("data-name", topics[i]);
         button.text(topics[i].toUpperCase());
@@ -55,7 +55,7 @@ $(".button").on("click", function () {
             var button = $('<button class="button">');
             button.attr("data-name");
 
-            
+
         });
        
         //Once on screen, data-name will be used as term to pull ajax call
