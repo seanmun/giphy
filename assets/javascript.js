@@ -2,11 +2,11 @@
 var topics = ["stone cold", "undertaker", "vince mcmahon", "the rock", "hulk hogan"]
 
 // Display topics 
-var topicButton = function () {
+var topic = function () {
     $("#buttons").empty();
 
     for (let i = 0; i < topics.length; i++) {
-        var button = $('<button class="button btn btn-primary">');
+        var button = $('<button class="button">');
         button.attr("data-name", topics[i]);
         button.text(topics[i].toUpperCase());
 
@@ -14,7 +14,7 @@ var topicButton = function () {
     }
 }
 
-topicButton();
+topic();
 
 
 
