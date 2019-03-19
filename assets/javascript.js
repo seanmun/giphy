@@ -1,5 +1,17 @@
 // Topics
-var topics = ["stone cold", "undertaker", "vince mcmahon", "the rock", "hulk hogan"]
+var topics = ["stone cold", "undertaker", "vince mcmahon", "the rock", "hulk hogan"];
+
+ //Push buttons from search bar to screen using jquery
+ $("#add-gif-button").on("click", function () {
+    //Place the value as data-name
+        var term =  $("#search-input").val().trim();
+        console.log(term);
+        var button = $('<button class="button">');
+        button.attr("data-name", term);
+        //Once on screen, data-name will be used as term to pull ajax call
+
+
+    });
 
 // Display topics 
 var topicButtons = function () {
@@ -8,6 +20,7 @@ var topicButtons = function () {
     for (var i = 0; i < topics.length; i++) {
         var button = $('<button class="button">');
         button.attr("data-name", topics[i]);
+        //must remember uppercase
         button.text(topics[i].toUpperCase());
         $("#buttons").append(button);
     }
@@ -18,12 +31,15 @@ topicButtons ();
 
 
 // My api key
-var api = "&api_key=5t8MlY5fypS0vO5FlPmAtWubZunwN06n";
+
 
 $(".button").on("click", function () {
-
+    var api = "&api_key=5t8MlY5fypS0vO5FlPmAtWubZunwN06n";
     var term = $(this).attr("data-name");
-    var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + term + api + "&limit=10&rating=g";
+    var url = "https://api.giphy.com/v1/gifs/search?q=";
+    var limits = "&limit=10";
+    var rating = "&rating=g";
+    var queryUrl = url + term + api + limits + rating;
 
     $.ajax({
         method: 'GET',
@@ -44,20 +60,8 @@ $(".button").on("click", function () {
             addDiv.prepend(addGif);
             $("#gifs").prepend(addDiv); 
             }
-        });
-
-       
-        //Push buttons from search bar to screen using jquery
-        $("#add-gif-button").on("click", function () {
-        //Place the value as data-name
-            var term =  $("#search-input").val().trim();
-            console.log(term);
-            var button = $('<button class="button">');
-            button.attr("data-name");
-
-
-        });
-       
-        //Once on screen, data-name will be used as term to pull ajax call
+        });   
 
 });
+
+ 
