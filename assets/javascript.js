@@ -1,7 +1,6 @@
 // Topics
 var topics = ["stone cold", "undertaker", "vince mcmahon", "the rock", "hulk hogan"];
 
-
 // Display topics 
 var topicButtons = function () {
     $("#buttons").empty();
@@ -23,25 +22,24 @@ topicButtons ();
     event.preventDefault();
     //Place the value as data-name
         var term =  $("#search-input").val().trim();
-        console.log(term);
+        topics.push(term);
+        console.log(topics);
         var button = $('<button class="button">');
         button.attr("data-name", term);
         button.text(term.toUpperCase());
         $("#buttons").append(button);
+        topicButtons ();
         //Once on screen, data-name will be used as term to pull ajax call
-
-
+  
     });
-
-// My api key
-
-
+// get data from api
 $(".button").on("click", function () {
+    // My api key
     var api = "&api_key=5t8MlY5fypS0vO5FlPmAtWubZunwN06n";
     var term = $(this).attr("data-name");
     var url = "https://api.giphy.com/v1/gifs/search?q=";
     var limits = "&limit=10";
-    var rating = "&rating=g";
+    var rating = "&rating=pg";
     var queryUrl = url + term + api + limits + rating;
 
     $.ajax({
@@ -66,5 +64,7 @@ $(".button").on("click", function () {
         });   
 
 });
+
+ 
 
  
