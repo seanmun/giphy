@@ -12,3 +12,16 @@ button:hover {
 input {
     margin: 10px 0;
 }
+
+form {
+    border: 2px #8b0000 solid;
+    padding: 10px;
+}
+
+.pad {
+    padding: 10px;
+}
+
+.img {
+    max-width: 150px;
+}

@@ -30,26 +30,24 @@ $(".button").on("click", function () {
         url: queryUrl
     }).then(function (response) {
 
-        $("#gifLoader").empty();
+        $("#gifs").empty();
 
         var results = response.data;
         console.log(results);
 
         for (var i = 0; i < results.length; i++) {
-            var gifDiv = $("<div class='item col-md-4'>");
+            var addDiv = $("<div class='pad'>");
+            var addGif = $("<img class='img'>");
 
-            var rating = results[i].rating;
-
-            var p = $("<p>").text("Rating: " + rating);
-
-            var personImage = $("<img class='img w-100'>");
-            personImage.attr("src", results[i].images.fixed_height.url);
-
-
-            gifDiv.prepend(p);
-            gifDiv.prepend(personImage);
-
-            $("#gifLoader").prepend(gifDiv); 
-    }
+            addGif.attr("src", results[i].images.fixed_height.url);
+            
+            addDiv.prepend(addGif);
+            $("#gifs").prepend(addDiv); 
+            }
         });
+
+        //Push buttons from search bar to screen using jquery
+        //Place the value as data-name
+        //Once on screen, data-name will be used as term to pull ajax call
+
 });
