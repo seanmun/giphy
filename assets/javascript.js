@@ -1,17 +1,6 @@
 // Topics
 var topics = ["stone cold", "undertaker", "vince mcmahon", "the rock", "hulk hogan"];
 
- //Push buttons from search bar to screen using jquery
- $("#add-gif-button").on("click", function () {
-    //Place the value as data-name
-        var term =  $("#search-input").val().trim();
-        console.log(term);
-        var button = $('<button class="button">');
-        button.attr("data-name", term);
-        //Once on screen, data-name will be used as term to pull ajax call
-
-
-    });
 
 // Display topics 
 var topicButtons = function () {
@@ -29,6 +18,20 @@ var topicButtons = function () {
 topicButtons ();
 
 
+ //Push buttons from search bar to screen using jquery
+ $("#add-gif-button").on("click", (event) => {
+    event.preventDefault();
+    //Place the value as data-name
+        var term =  $("#search-input").val().trim();
+        console.log(term);
+        var button = $('<button class="button">');
+        button.attr("data-name", term);
+        button.text(term.toUpperCase());
+        $("#buttons").append(button);
+        //Once on screen, data-name will be used as term to pull ajax call
+
+
+    });
 
 // My api key
 
