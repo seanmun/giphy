@@ -3,3 +3,7 @@ button {
     background: red;
     color: white;
 }
+
+input {
+    margin: 10px;
+}
