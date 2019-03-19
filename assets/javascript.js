@@ -34,20 +34,30 @@ $(".button").on("click", function () {
 
         var results = response.data;
         console.log(results);
-
+        // for loop the aviable gifs until limit is met
         for (var i = 0; i < results.length; i++) {
             var addDiv = $("<div class='pad'>");
             var addGif = $("<img class='img'>");
-
+            // source gif
             addGif.attr("src", results[i].images.fixed_height.url);
-            
+            //append html
             addDiv.prepend(addGif);
             $("#gifs").prepend(addDiv); 
             }
         });
 
+       
         //Push buttons from search bar to screen using jquery
+        $("#add-gif-button").on("click", function () {
         //Place the value as data-name
+            var term =  $("#search-input").val().trim();
+            console.log(term);
+            var button = $('<button class="button">');
+            button.attr("data-name");
+
+            
+        });
+       
         //Once on screen, data-name will be used as term to pull ajax call
 
 });
