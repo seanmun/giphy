@@ -2,8 +2,13 @@ button {
     margin: 10px;
     background: red;
     color: white;
+    border-radius: 10px;
+}
+
+button:hover {
+  background:  #8b0000 !important;
 }
 
 input {
-    margin: 10px;
+    margin: 10px 0;
 }
